@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.4 on darwin)" generated="20220605 22:24:49.073" rpa="false" schemaversion="3">
+<suite id="s1" name="Revenda" source="/Users/rodolffocarvalho/Desktop/Regressivo_Pedir_Gás/Suites/CN 01 - Revenda/Revenda.robot">
+<kw name="Abrir Navegador" library="Suite_teardown" type="SETUP">
+<kw name="Dado que acesso Workspace do Admistrador SGB" library="Login">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${GERAL.URL}</arg>
+<arg>${GERAL.NAVEGADOR}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220605 22:24:49.242" level="INFO">Opening browser 'Chrome' to base url 'https://supergasbras-admin-sandbox.herokuapp.com/#!/login'.</msg>
+<status status="PASS" starttime="20220605 22:24:49.241" endtime="20220605 22:24:57.298"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220605 22:24:57.299" endtime="20220605 22:24:57.435"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.2s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220605 22:24:57.435" endtime="20220605 22:24:57.435"/>
+</kw>
+<status status="PASS" starttime="20220605 22:24:49.241" endtime="20220605 22:24:57.435"/>
+</kw>
+<kw name="E faço o login" library="Login">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_REGISTRO.USERNAME}</arg>
+<arg>${REGISTRO.USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220605 22:24:57.439" level="INFO">Typing text 'rodolffo2@gmail.com' into text field '//input[@placeholder="Email do admin"]'.</msg>
+<status status="PASS" starttime="20220605 22:24:57.436" endtime="20220605 22:24:58.188"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${INPUT_REGISTRO.PASSOWORD}</arg>
+<arg>${REGISTRO.SENHA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220605 22:24:58.190" level="INFO">Typing password into text field '//input[@placeholder="Senha"]'.</msg>
+<msg timestamp="20220605 22:24:58.635" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220605 22:24:58.882" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220605 22:24:58.188" endtime="20220605 22:24:58.882"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${INPUT_REGISTRO.BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220605 22:24:58.884" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<status status="PASS" starttime="20220605 22:24:58.882" endtime="20220605 22:24:59.980"/>
+</kw>
+<status status="PASS" starttime="20220605 22:24:57.436" endtime="20220605 22:24:59.981"/>
+</kw>
+<status status="PASS" starttime="20220605 22:24:49.241" endtime="20220605 22:24:59.981"/>
+</kw>
+<test id="s1-t1" name="01 CN - Pesquisa por revenda existente" line="11">
+<kw name="Dado que estou na pagina incial do admin" library="Home_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${HOME.ADM}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220605 22:24:59.984" endtime="20220605 22:25:02.078"/>
+</kw>
+<status status="PASS" starttime="20220605 22:24:59.983" endtime="20220605 22:25:02.078"/>
+</kw>
+<kw name="E clico no menu lista de revendas" library="Revenda_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${REVENDA.EDIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220605 22:25:02.080" level="INFO">Clicking button '//button[@href="#!/resellers/list"]'.</msg>
+<status status="PASS" starttime="20220605 22:25:02.079" endtime="20220605 22:25:03.146"/>
+</kw>
+<status status="PASS" starttime="20220605 22:25:02.079" endtime="20220605 22:25:03.146"/>
+</kw>
+<kw name="Quando sou redirecionado a nova pagina" library="Revenda_page">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Revendas</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220605 22:25:03.560" level="INFO">Current page contains text 'Revendas'.</msg>
+<status status="PASS" starttime="20220605 22:25:03.147" endtime="20220605 22:25:03.560"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>input[ng-model='search']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20220605 22:25:09.794" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220605 22:25:09.795" level="FAIL">Element 'input[ng-model='search']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20220605 22:25:03.561" endtime="20220605 22:25:09.796"/>
+</kw>
+<status status="FAIL" starttime="20220605 22:25:03.146" endtime="20220605 22:25:09.797"/>
+</kw>
+<status status="FAIL" starttime="20220605 22:24:59.981" endtime="20220605 22:25:09.798">Element 'input[ng-model='search']' not visible after 5 seconds.</status>
+</test>
+<kw name="Fechar Navegador" library="Suite_teardown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220605 22:25:09.799" endtime="20220605 22:25:10.065"/>
+</kw>
+<status status="PASS" starttime="20220605 22:25:09.799" endtime="20220605 22:25:10.066"/>
+</kw>
+<status status="FAIL" starttime="20220605 22:24:49.076" endtime="20220605 22:25:10.066"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Revenda">Revenda</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
